@@ -1,0 +1,54 @@
+extends layout
+
+block content
+  #banner.page-header
+    .row
+      .col-md-6.col-sm-12
+        h2 Submit Your Review
+
+        form(action="/submit_review", method="POST")
+          .form-group
+            label(for="name") Name:
+            input.form-control(
+              type="text", 
+              id="name", 
+              name="name", 
+              placeholder="Enter your name", 
+              required
+            )
+          
+          .form-group
+            label(for="email") Email:
+            input.form-control(
+              type="email", 
+              id="email", 
+              name="email", 
+              placeholder="Enter your email", 
+              required
+            )
+
+          .form-group
+            label(for="rating") Rating (1-5):
+            input.form-control(
+              type="number", 
+              id="rating", 
+              name="rating", 
+              min=1, 
+              max=5, 
+              required
+            )
+
+          .form-group
+            label(for="review") Review:
+            textarea.form-control(
+              id="review", 
+              name="review", 
+              rows="5", 
+              placeholder="Write your review here...", 
+              required
+            )
+
+          .form-group
+            input.btn.btn-primary(type="submit", value="Submit")
+            &nbsp;
+            a.btn.btn-secondary(href="/") Cancel
